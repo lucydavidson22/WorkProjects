@@ -36,10 +36,22 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
       console.log('get the maxId');
       nextId = maxDocumentId;
       break;
+    case 'pubPapers':
+      maxPubPaperId++;
+      updateObject = { maxPubPaperId: maxPubPaperId };
+      console.log('get the max id of pubpapers');
+      nextId = maxPubPaperId;
+      break;
+    case 'projChoices':
+      maxProjChoiceId++;
+      updateObject = { maxProjChoiceId: maxProjChoiceId };
+      console.log('get the max id of pubpapers');
+      nextId = maxProjChoiceId;
+      break;
     default:
       return -1;
   }
-
+  
   Sequence.update({_id: sequenceId}, {$set: updateObject},
     function(err) {
       if (err) {
