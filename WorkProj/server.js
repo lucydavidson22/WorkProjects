@@ -44,7 +44,7 @@ app.use((req, res, next) => {
 
 // Tell express to use the specified director as the
 // root directory for your web site
-app.use(express.static(path.join(__dirname, 'dist/insight-proj')));
+app.use(express.static(path.join(__dirname, 'dist/work-proj')));
 
 // Tell express to map the default route ('/') to the index route
 app.use('/', index);
@@ -77,7 +77,7 @@ mongoose.connect('mongodb+srv://lucydavidson:Ke0PP6c0skab7Ms3@cluster0.vi6kbmc.m
 
 // Tell express to map all other non-defined routes back to the index page
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/insight-proj/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/work-proj/index.html'));
 });
 
 // Define the port address and tell express to use this port
